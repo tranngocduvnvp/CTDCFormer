@@ -155,6 +155,7 @@ class CTDC(nn.Module):
 if __name__ == "__main__":
 
     model = CTDC()
-    x = torch.rand(2,3,352,352)
-    out = model(x)
-    print(out.shape)
+    print(model.feature_extractor.backbone.block1)
+    # x = torch.rand(2,3,352,352)
+    # out = model(x)
+    # print(out.shape)

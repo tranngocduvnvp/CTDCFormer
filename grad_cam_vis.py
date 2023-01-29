@@ -54,7 +54,7 @@ def showAll(image_rgb, label, cam, path='', is_save = False):
 
 if __name__ == "__main__":
 
-    target_layers = [model.attention4]
+    target_layers = [model.rb5]
     cam =  GradCAM(model=model,
                 target_layers=target_layers,
                 use_cuda=torch.cuda.is_available())

@@ -11,7 +11,7 @@ def postprocess_image(image):
 def de_normal(image):
     image = image[0].permute(1,2,0).cpu().numpy()
     image = image*0.5+0.5
-    return image
+    return np.clip(np.float32(image),0,1)
 
 def saveImage(data, label, predict, grad_cam, path, is_save = True):
     plt.subplot(1,4,1)
