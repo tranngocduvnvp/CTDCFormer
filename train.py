@@ -88,8 +88,7 @@ def build(args):
     return (device, train_dataloader, val_dataloader, test_dataloader, test_dataloader4vis, Dice_loss,
         BCE_loss, perf, model, optimizer, checkpoint, scheduler, loss_fun)
 
-( device, train_dataloader, val_dataloader, test_dataloader,test_dataloader4vis, Dice_loss,
-BCE_loss, perf, model, optimizer, checkpoint, scheduler, loss_fun) = build(args)
+
 
 
 def train_epoch(model, device, train_loader, optimizer, epoch, Dice_loss, BCE_loss):
@@ -150,7 +149,9 @@ def test(model, device, test_loader, epoch, perf_measure, phase):
 
 
 def train(args):
-
+    ( device, train_dataloader, val_dataloader, test_dataloader,test_dataloader4vis, Dice_loss,
+    BCE_loss, perf, model, optimizer, checkpoint, scheduler, loss_fun) = build(args)
+    
     if not os.path.exists("./Trained models"):
         os.makedirs("./Trained models")
 
@@ -165,9 +166,7 @@ def train(args):
             val_measure_mean, val_measure_std = test(
                 model, device, val_dataloader, epoch, perf,"Val"
             )
-            test_measure_mean, test_measure_std = test(
-                model, device, test_dataloader, epoch, perf,"Test"
-            )
+            
         except KeyboardInterrupt:
             print("Training interrupted by user")
             sys.exit(0)
@@ -194,8 +193,39 @@ def train(args):
             )
             prev_best_test = val_measure_mean
 
+class Args:
+        def __init__(self,root, epochs, batch_size, dataset, mgpu, lrs_min,\
+                    lrs, lr, type_lr, checkpoint_path, backbone, optim):
+            self.root = root
+            self.epochs = epochs
+            self.batch_size = batch_size
+            self.dataset = dataset
+            self.mgpu = mgpu
+            self.lrs_min = lrs_min
+            self.lrs = lrs
+            self.lr = lr
+            self.type_lr = type_lr
+            self.checkpoint_path = checkpoint_path
+            self.backbone = backbone
+            self.optim = optim
+        
+args = Args(
+    root="./datasets/kvasir", 
+    epochs=80, 
+    batch_size=4, 
+    dataset="Kvasir",
+    mgpu="false",
+    lrs="true",
+    lrs_min=1e-6,
+    lr = 1e-4,
+    type_lr = "StepLR",
+    checkpoint_path = None,
+    backbone="PvtB3",
+    optim="AdamW"
+)
 
 def main():
+
     train(args)
 
 

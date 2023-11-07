@@ -51,16 +51,16 @@ class Args:
         self.optim = optim
         
 args = Args(
-    root="/home/tranngocdu/Documents/paper/CTDCFormer/data_new/TestDataset/CVC-ColonDB", 
+    root="./datasets/TestDataset/CVC-ColonDB", 
     epochs=40, 
     batch_size=4, 
-    dataset="Kvasir_18_12",
+    dataset="Kvasir",
     mgpu="false",
     lrs="true",
     lrs_min=1e-6,
     lr = 1e-4,
     type_lr = "StepLR",
-    checkpoint_path = "/home/tranngocdu/Documents/paper/CTDCFormer/CTDCFormer/checkpoint/CTDCformer_epoch_backbonePvitB4_generalizability_20_12.pt",
+    checkpoint_path = "./checkpoint/kvasir/CTDCformer_epoch_backbonePvitB3_Kvasir.pt",
     backbone="PvtB3",
     optim="AdamW"
 )
