@@ -14,21 +14,21 @@ Polyp Segmentation is important in helping doctors diagnose and provide an accur
 
 ### 1.2 Architecture
 <p align="center">
-	<img width=900, src="Images/Architecture.png"> <br />
+	<img width=700, src="Images/Architecture.png"> <br />
 	<em>
 		Figure 1: Overview Architecture of the proposed CTDCFomer model.
 	</em>
 </p>
 
 <p align="center">
-	<img width=900, src="Images/GCFmodule.png"> <br />
+	<img width=700, src="Images/GCFmodule.png"> <br />
 	<em>
 		Figure 2: Structure of the proposed GCF module.
 	</em>
 </p>
 
 <p align="center">
-	<img width=900, src="Images/DB_block.png"> <br />
+	<img width=700, src="Images/DB_block.png"> <br />
 	<em>
 		Figure 4: Structure of a) Residual block (RB), and b) Decoder Block (DB)
 	</em>
@@ -36,7 +36,7 @@ Polyp Segmentation is important in helping doctors diagnose and provide an accur
 
 ### 1.3 Qualitative results
 <p align="center">
-	<img width=900, src="Images/Qualitative_vis.png"> <br />
+	<img width=700, src="Images/Qualitative_vis.png"> <br />
 	<em>
 		Figure 5: Qualitative segmentation results of the proposed CTDCFormer model. a) The predicted results on 5 datasets. b) Attention heatmaps of four decoder layers connected to GCF module module ($HD_i$ is the heatmap of the ith decoder layer)
 	</em>
